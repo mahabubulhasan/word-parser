@@ -12,7 +12,7 @@ class Words(db.Entity):
 
 class Examples(db.Entity):
     word = Required(str)
-    line = Required(str)
+    sentence = Required(str)
 
 
 """ these lines has to be after entity classes """
