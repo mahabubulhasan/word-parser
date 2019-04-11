@@ -1,6 +1,7 @@
 from vocab import Vocab
 from database import *
 from scrapper import Scrapper
+from time import time
 
 files = ['list_a', 'list_b', 'list_c', 'list_d', 'list_e']
 
@@ -54,13 +55,15 @@ def save_sentence(word, sentence):
 
 def main():
     # load_words()
+    start_time = time()
     scrapper = Scrapper()
-    for index in range(0, 100, 10):
+    for index in range(0, 50, 10):
         print("scrapping started from {}".format(index))
         words = get_words(index)
         scrape_words(words, scrapper)
 
     scrapper.close()
+    print("duration: {}".format(time() - start_time))
 
 
 if __name__ == '__main__':
