@@ -57,7 +57,7 @@ def main():
     # load_words()
     start_time = time()
     scrapper = Scrapper()
-    for index in range(0, 50, 10):
+    for index in range(0, 100, 10):
         print("scrapping started from {}".format(index))
         words = get_words(index)
         scrape_words(words, scrapper)
