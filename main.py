@@ -21,25 +21,22 @@ def load_words():
 
 
 @db_session
-def get_words():
+def get_words(start_index):
     words = []
-    for w in Words.select().order_by(Words.word).limit(5):
+    for w in Words.select().order_by(Words.word).limit(10, start_index):
         words.append(w.word)
 
     return words
 
 
 @db_session
-def scrape_words(words):
-    print("Scrapping started....")
-    scrapper = Scrapper()
+def scrape_words(words, scrapper):
     for word in words:
-        scrape = scrapper.scrape(word)
-        update_word(word, scrape.audio(), scrape.details())
-        for line in scrape.examples():
-            save_sentence(word, line)
-
-    scrapper.close()
+        connected = scrapper.scrape(word)
+        if connected:
+            update_word(word, scrapper.audio(), scrapper.details())
+            for line in scrapper.examples():
+                save_sentence(word, line)
 
 
 def update_word(word, audio, details):
@@ -57,8 +54,13 @@ def save_sentence(word, sentence):
 
 def main():
     # load_words()
-    words = get_words()
-    scrape_words(words)
+    scrapper = Scrapper()
+    for index in range(0, 100, 10):
+        print("scrapping started from {}".format(index))
+        words = get_words(index)
+        scrape_words(words, scrapper)
+
+    scrapper.close()
 
 
 if __name__ == '__main__':
