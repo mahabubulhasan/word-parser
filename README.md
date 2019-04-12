@@ -1,5 +1,5 @@
 ## Why it event exsists?
-For a long since i've been looking for a good vocabulary app for my Android phone. But there was none (_oviously there are some apps out there but none of them satisfy me enough so that i had to build my own_). What a vocuabulary app do?! teaches us vocabulary!!! and where does it get those vocabulary?! well here comes this `word_parser`. This tool parse the vocabulary from the internet.
+For a long since i've been looking for a good vocabulary app for my Android phone. But there was none (_oviously there are some apps out there but none of them satisfy me enough so that i had to build my own_). What a vocuabulary app do?! teaches us vocabulary!!! and where does it get those vocabulary?! well here comes this `word-parser`. This tool parse the vocabulary from the internet.
 
 For my app idea i wanted to have these: 
 - the word
