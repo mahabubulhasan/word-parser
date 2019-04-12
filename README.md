@@ -40,3 +40,5 @@ $ pip install setup.py
   ...
 ]
 ```
+
+**NOTE:** After download audio files are named as according to the word it stands for, for example if the word is `abase` them the audio file name of this word will be `abase.mp3`
