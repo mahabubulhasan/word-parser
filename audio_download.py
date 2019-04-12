@@ -7,7 +7,7 @@ from time import time
 @db_session
 def get_words():
     word_dict = dict()
-    for w in Words.select().order_by(Words.word).limit(200, 300):
+    for w in Words.select().order_by(Words.word).limit(500, 1000):
         word_dict[w.word] = w.audio
 
     return word_dict
