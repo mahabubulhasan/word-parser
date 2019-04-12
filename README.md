@@ -53,7 +53,7 @@ In `main.py` take a look at this code block,
 ```
 Here `range(1482, 2000, 10)` means scrape `10` words at a time starting form index in the sqlite `1482` to `2000`.
 
-I know it looks weird but it is important since the site we are scrapping sending too many request to that site will end us by getting blocked by them. In `range(start, end, stepping)`, the start and end part is important. You need to look at the sqlite file and just make sure you are not sending same word scrape requiest twice.
+I know it looks weird but it is important since the site we are scrapping sending too many request to that site will end us by getting blocked by them. In `range(start, end, stepping)`, the start and end part is important. You need to look at the sqlite database and just make sure you are not sending the same word scrape request twice, by that i mean if a word is already scrapped don't do it again for that word.
 
 In the `audio_download.py` take a look at this code block for the same reason mentioned earlier,
 ```python
