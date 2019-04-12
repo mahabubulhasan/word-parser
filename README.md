@@ -22,7 +22,7 @@ $ pip install setup.py
 1. run `doc_reader.py` to parse the *words* and *short definitions* from files in the `doc` directory and save them into a sqlite database.
 1. run `main.py`, it will read the *words* from the sqlite file, which is generated in step 1, and scrape the example sentences, detailed definition, and audio file url from a remote site, and update them into the sqlite database
 1. run `audio_download.py` will download the audio from remote site and saves them into `audio` directory
-1. finally run the `json_builder.py` will build the `json` file using everything in the sqlite database in the following format:
+1. finally run the `json_builder.py` will build the `json` file using everything in the sqlite database in the following format and save in the `data` directory:
 ```json
 [
   {
