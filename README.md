@@ -10,7 +10,7 @@ For my app idea i wanted to have these:
 
 
 ## Setup
-Just follow this flow of instructions and you are good to go
+First make sure you have __Python 3__ and then just follow this flow of instructions and you are good to go
 
 ```
 $ git clone https://github.com/mahabubulhasan/word_parser.git
