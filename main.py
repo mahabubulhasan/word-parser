@@ -1,24 +1,6 @@
-from vocab import Vocab
+from time import time
 from database import *
 from scrapper import Scrapper
-from time import time
-
-files = ['list_a', 'list_b', 'list_c', 'list_d', 'list_e']
-
-
-@db_session
-def load_words():
-    """loads words from html files to sqlite database, should be called only once"""
-
-    vocab = Vocab(files)
-    words = vocab.words()
-
-    for word in words:
-        row = Words.get(word=word)
-        if row:
-            row.set(definition=vocab.definition(word))
-        else:
-            Words(word=word, definition=vocab.definition(word))
 
 
 @db_session
@@ -56,7 +38,6 @@ def save_sentence(word, sentence):
 
 
 def main():
-    # load_words()
     start_time = time()
     scrapper = Scrapper()
     for index in range(1482, 2000, 10):
