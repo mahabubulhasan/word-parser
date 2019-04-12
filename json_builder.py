@@ -5,11 +5,10 @@ from database import *
 @db_session
 def get_words():
     word_list = []
-    for w in Words.select().order_by(Words.word).limit(2):
+    for w in Words.select().order_by(Words.word):
         word_list.append({
             'word': w.word,
             'definition': w.definition,
-            'audio': w.audio,
             'details': w.details,
             'examples': get_examples(w.word)
         })
