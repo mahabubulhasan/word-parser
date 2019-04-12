@@ -1,4 +1,4 @@
-## Why it even exsists?
+## Why it even exists?
 For a long since i've been looking for a good vocabulary app for my Android phone. But there was none (_oviously there are some apps out there but none of them satisfy me enough so that i had to build my own_). What a vocuabulary app do?! teaches us vocabulary!!! and where does it get those vocabulary?! well here comes this `word-parser`. This tool parse the vocabulary from the internet.
 
 For my app idea i wanted to have these: 
@@ -46,18 +46,18 @@ $ pip install setup.py
 ## Caveats
 In `main.py` take a look at this code block, 
 ```python
-    for index in range(1482, 2000, 10):
-        print("scrapping started from {}".format(index))
-        words = get_words(index)
-        scrape_words(words, scrapper)
+for index in range(1482, 2000, 10):
+    print("scrapping started from {}".format(index))
+    words = get_words(index)
+    scrape_words(words, scrapper)
 ```
-Here `range(1482, 2000, 10)` means scrape `10` words at a time starting form index in the sqlite `1482` to `2000`.
+Here `range(1482, 2000, 10)` means scrape `10` words at a time starting from index in the sqlite `1482` to `2000`.
 
 I know it looks weird but it is important since the site we are scrapping sending too many request to that site will end us by getting blocked by them. In `range(start, end, stepping)`, the start and end part is important. You need to look at the sqlite database and just make sure you are not sending the same word scrape request twice, by that i mean if a word is already scrapped don't do it again for that word.
 
 In the `audio_download.py` take a look at this code block for the same reason mentioned earlier,
 ```python
-    for w in Words.select().order_by(Words.word).limit(500, 1000):
-        word_dict[w.word] = w.audio
+for w in Words.select().order_by(Words.word).limit(500, 1000):
+    word_dict[w.word] = w.audio
 ```
 Here `limit(start, offset)` is a `ponyorm` method, and `limit(500, 1000)` means get me `500` words from the sqlite database starting from index `1000`
