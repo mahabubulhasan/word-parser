@@ -59,36 +59,40 @@ def get_words():
         add_group(w, 'y', y_list)
         add_group(w, 'z', z_list)
 
-    word_list = {
-        'a': len(a_list),
-        'b': len(b_list),
-        'c': len(c_list),
-        'd': len(d_list),
-        'e': len(e_list),
-        'f': len(f_list),
-        'g': len(g_list),
-        'h': len(h_list),
-        'i': len(i_list),
-        'j': len(j_list),
-        'k': len(k_list),
-        'l': len(l_list),
-        'm': len(m_list),
-        'n': len(n_list),
-        'o': len(o_list),
-        'p': len(p_list),
-        'q': len(q_list),
-        'r': len(r_list),
-        's': len(s_list),
-        't': len(t_list),
-        'u': len(u_list),
-        'v': len(v_list),
-        'w': len(w_list),
-        'x': len(x_list),
-        'y': len(y_list),
-        'z': len(z_list),
-    }
+    word_list = []
+    for i in range(1, 190):
+        list_append(word_list, a_list)
+        list_append(word_list, b_list)
+        list_append(word_list, c_list)
+        list_append(word_list, d_list)
+        list_append(word_list, e_list)
+        list_append(word_list, f_list)
+        list_append(word_list, g_list)
+        list_append(word_list, h_list)
+        list_append(word_list, i_list)
+        list_append(word_list, j_list)
+        list_append(word_list, k_list)
+        list_append(word_list, l_list)
+        list_append(word_list, m_list)
+        list_append(word_list, n_list)
+        list_append(word_list, o_list)
+        list_append(word_list, p_list)
+        list_append(word_list, q_list)
+        list_append(word_list, r_list)
+        list_append(word_list, s_list)
+        list_append(word_list, t_list)
+        list_append(word_list, u_list)
+        list_append(word_list, v_list)
+        list_append(word_list, w_list)
+        list_append(word_list, y_list)
+        list_append(word_list, z_list)
 
     return word_list
+
+
+def list_append(word_list, lst):
+    if lst:
+        word_list.append(lst.pop(0))
 
 
 def definition(w):
@@ -114,12 +118,11 @@ def get_examples(word):
 
 
 def write_file(content):
-    with open("data/words.json", 'w+') as f:
+    with open("data/words_random.json", 'w+') as f:
         f.write(content)
         print('file write successful!')
 
 
 if __name__ == '__main__':
     words = get_words()
-    print(words)
-    # write_file(json.dumps(words))
+    write_file(json.dumps(words))
